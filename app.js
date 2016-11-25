@@ -10,6 +10,6 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use("/", routes);
-app.listen(3000, function () {
-    console.log("listen on port 3000");
+app.listen(4000, function () {
+    console.log("listen on port 4000");
 });

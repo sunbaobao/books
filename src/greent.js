@@ -9,7 +9,7 @@ class Greeter extends Component {
         super(props);
         this.state = {
             datas: [],
-            id:""
+            id: ""
         };
 
     }
@@ -20,11 +20,11 @@ class Greeter extends Component {
          1000
          );*/
         const that = this;
-        let id=  this.props.params.name;
-        if(this.state.id==id){
+        let id = this.props.params.name;
+        if (this.state.id == id) {
             return;
         }
-        this.state.id=id;
+        this.state.id = id;
         $.get("/catalog?id=" + id,
             function (res) {
                 if (res['reason'] == "Success") {
@@ -39,16 +39,16 @@ class Greeter extends Component {
     componentWillReceiveProps() {
         const that = this;
 
-        let id=  this.props.params.name;
-        if(this.state.id==id){
+        let id = this.props.params.name;
+        if (this.state.id == id) {
             return;
         }
-        this.state.id=id;
+        this.state.id = id;
         $.get("/catalog?id=" + id,
             function (res) {
                 console.log(that.props.params.name);
                 if (res['reason'] == "Success") {
-                    if(that.state.datas==res.result.data)return;
+                    if (that.state.datas == res.result.data)return;
                     that.setState({
                         datas: res.result.data
                     });
@@ -85,6 +85,7 @@ class Greeter extends Component {
          title
          :
          "悲惨世界"*/
+
         return (
             <div className="content">
                 {
@@ -95,9 +96,9 @@ class Greeter extends Component {
                                     <img src={item.img} alt={
                                         item.title
                                     }
-                                    title={
-                                        item.title
-                                    }/>
+                                         title={
+                                             item.title
+                                         }/>
                                 </div>
                                 <div className="detail clear">
                                     <h3> { item.title }</h3>
